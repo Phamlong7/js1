@@ -11,13 +11,34 @@
       background-position: center;
       text-align: center;
       line-height: 400px;
+      margin: 0 auto;
+    }
+
+    .preview-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .preview-container img {
+      width: calc(100% / 6 - 20px);
+      height: auto;
+      margin: 0 5px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-<img id="preview" src="https://www.industryleadersmagazine.com/wp-content/uploads/ford-mustang-becomes-the-best-selling-sports-caar-in-the-world-1.jpg" alt="Default Image" onmouseover="upDate(this)" onmouseout="undo()">
-
+<div class="preview-container">
+<img id="preview1" src="https://www.topgear.com/sites/default/files/2021/12/18.%20Koenigsegg%20Jesko.jpeg" alt="Image 1" onmouseover="upDate(this)" onmouseout="undo()" onfocus="console.log('Focus event triggered.')" onblur="console.log('Blur event triggered.')" tabindex="0">
+<img id="preview2" src="https://robbreport.com/wp-content/uploads/2022/11/3-w-Zenvo-thumbnail_Zenvo.jpg?w=800" alt="Image 2" onmouseover="upDate(this)" onmouseout="undo()" onfocus="console.log('Focus event triggered.')" onblur="console.log('Blur event triggered.')" tabindex="0">
+<img id="preview3" src="https://robbreport.com/wp-content/uploads/2021/12/29.jpg?w=800" alt="Image 3" onmouseover="upDate(this)" onmouseout="undo()" onfocus="console.log('Focus event triggered.')" onblur="console.log('Blur event triggered.')" tabindex="0">
+<img id="preview4" src="https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/1-ferrari-296-gtb-top-10.jpg" alt="Image 4" onmouseover="upDate(this)" onmouseout="undo()" onfocus="console.log('Focus event triggered.')" onblur="console.log('Blur event triggered.')" tabindex="0">
+<img id="preview5" src="https://www.topgear.com/sites/default/files/2021/12/1.%20Bugatti%20Chiron.jpeg" alt="Image 5" onmouseover="upDate(this)" onmouseout="undo()" onfocus="console.log('Focus event triggered.')" onblur="console.log('Blur event triggered.')" tabindex="0">
+<img id="preview6" src="https://car-images.bauersecure.com/wp-images/3695/maserati-mc20-lead.jpg" alt="Image 6" onmouseover="upDate(this)" onmouseout="undo()" onfocus="console.log('Focus event triggered.')" onblur="console.log('Blur event triggered.')" tabindex="0">
+</div>
 <div id="image">
   Hover over an image below to display here.
 </div>
@@ -42,6 +63,16 @@ function undo() {
   document.getElementById('image').style.backgroundImage = "url('')";
   document.getElementById('image').innerText = "Hover over an image below to display here.";
 }
+
+function addTabFocusAttribute() {
+  console.log("onload event triggered.");
+  var images = document.querySelectorAll('img');
+  images.forEach(function(image) {
+    image.setAttribute('tabindex', '0');
+  });
+}
+
+window.onload = addTabFocusAttribute;
 </script>
 
 </body>
