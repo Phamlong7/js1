@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Photo Gallery</title>
+  <style>
+    #image {
+      width: 600px;
+      height: 400px;
+      border: 2px solid black;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      line-height: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<img id="preview" src="https://www.industryleadersmagazine.com/wp-content/uploads/ford-mustang-becomes-the-best-selling-sports-caar-in-the-world-1.jpg" alt="Default Image" onmouseover="upDate(this)" onmouseout="undo()">
+
+<div id="image">
+  Hover over an image below to display here.
+</div>
+
+<script>
+function upDate(previewPic) {
+  console.log("Mouse over event triggered.");
+  
+  // Printing information about the previewPic variable
+  console.log("Alt:", previewPic.alt);
+  console.log("Source:", previewPic.src);
+  
+  // Change the text of the element with id "image"
+  document.getElementById('image').innerText = previewPic.alt;
+  
+  // Change the background image of the element with id "image"
+  document.getElementById('image').style.backgroundImage = `url(${previewPic.src})`;
+}
+
+function undo() {
+  // Reset the background image and text
+  document.getElementById('image').style.backgroundImage = "url('')";
+  document.getElementById('image').innerText = "Hover over an image below to display here.";
+}
+</script>
+
+</body>
+</html>
